@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, OakwoodMainActivity!</string>
+    <string name="app_name">Oakwood</string>
+    <string name="mainmenu_news">News</string>
+    <string name="mainmenu_calendar">Calendar</string>
+    <string name="mainmenu_eray">ERay</string>
+    <string name="mainmenu_sermon">Sermon</string>
+    <string name="mainmenu_bible_verse">Daily Bible Verses</string>
+    <string name="news_title">This is the news page</string>
+    <string name="news_close">Close</string>
+    <string name="sermon_title">Sermon Title</string>
+    <string name="sermon_stop">Stop</string>
+    <string name="sermon_start">Start</string>
+    <string name="sermon_close">Close</string>
+    <string name="bible_verse_title">Daily Bible Verses</string>
+    <string name="bible_verse_close">Close</string>
+    <string name="bible_verse_content">John 3:16</string>
+    <string name="sermon_selection_content">Please select a sermon to listen to.</string>
+    <string name="nav_close">NClose</string>     
+        <string name="calendar_content">Calendar events can be seen below.</string>
+<string name="oakwood_address">2154 Loop 337 N, New Braunfels, Texas - We are on the North side of Loop 337, about 1 mile west of River Road, 1.5 miles east of Walnut past New Braunfels High School.
+    </string>
+<string name="duration_label">Total Duration: </string>
+<string name="eray_selection_content">Please select an eRay to read.</string>
+<string name="devotional_selection">Devotionals</string>
+<string name="devotional_selection_content">Please choose a devotional video to view.</string>
+<string name="category_prompt">Please select a category to filter by</string>
+<string-array name="category_array">
+<item>Array Item One</item>
+<item>Array Item Two</item>
+<item>Array Item Three</item>
+</string-array>
+<string name="eray_title">eRay</string>
+<string name="generic_error_text">Please make sure you have an active network or cell connection and try again later.</string>
+<string name="control_note">Please tap the screen to view controls.</string>
+<string name="ray_tweets_title">Ray Tweets</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+android:orientation="vertical" 
+android:layout_width="fill_parent"  
+android:layout_height="fill_parent">  
+
+<TextView android:id="@+id/route_oakwood_address" 
+android:layout_width="fill_parent"  
+android:layout_height="wrap_content"
+android:text="@string/oakwood_address"/>
+
+<TextView android:id="@+id/route_line" 
+android:layout_width="fill_parent"  
+android:layout_height="wrap_content"
+android:text="------------"/>
+
+
+<TextView android:id="@+id/description" 
+android:layout_width="fill_parent"  
+android:layout_height="wrap_content"/>  
+<com.google.android.maps.MapView  
+android:id="@+id/mapview" android:layout_width="fill_parent"  
+android:layout_height="fill_parent" android:clickable="true"       
+	android:apiKey="0i3Dm9d8s9opFLAKntbokF66CMu0QG7waS7-FVg"    
+	/>  </LinearLayout>  

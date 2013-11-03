@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000"
+    android:textColor="#FFFFFF"
+    android:textSize="20sp"
+    >
+    
+        <ScrollView     
+        android:id="@+id/SCROLLER_ID"
+        android:layout_width="fill_parent"     
+        android:layout_height="wrap_content"     
+        android:scrollbars="vertical"     
+        android:fillViewport="true">
+    
+            <RelativeLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    android:textColor="#FFFFFF"
+    android:textSize="20sp"
+    >
+     
+            <Button
+            android:id="@+id/bible_verse_button"
+			android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content"
+    		android:text="  DAILY VERSES"
+    		android:drawableLeft="@drawable/scripture"
+    		android:background="@null"
+    		android:textColor="#FFFFFF"
+    		android:gravity="left|center"
+            android:padding="5dp"
+            android:textSize="20sp"
+            />      
+            
+                        <Button
+            android:id="@+id/sermon_button"
+			android:layout_below="@id/bible_verse_button"
+			android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content"
+    		android:text="  SERMONS"
+    		android:drawableLeft="@drawable/sermon"
+    		android:background="@null"
+    		android:textColor="#FFFFFF"
+    		android:gravity="left|center"
+            android:padding="5dp"
+            android:textSize="20sp"
+            />
+                 
+    	
+
+
+            <Button
+            android:id="@+id/calendar_button"
+            android:layout_below="@id/sermon_button"
+			android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content"
+    		android:text="  EVENTS"
+    		android:drawableLeft="@drawable/calendar"
+    		android:background="@null"
+    		android:textColor="#FFFFFF"
+    		android:gravity="left|center"
+            android:padding="5dp"
+            android:textSize="20sp"
+            />
+
+            <Button
+            android:id="@+id/eray_button"
+			android:layout_below="@id/calendar_button"            
+			android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content"
+    		android:text="  RAY TWEETS"
+    		android:drawableLeft="@drawable/eray"
+    		android:background="@null"
+    		android:textColor="#FFFFFF"
+    		android:gravity="left|center"
+            android:padding="5dp"
+            android:textSize="20sp"
+            />
+            
+                        <Button
+            android:id="@+id/address_button"
+            android:layout_below="@id/eray_button"
+			android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content"
+    		android:text="  FIND US"
+    		android:drawableLeft="@drawable/address"
+    		android:background="@null"
+    		android:textColor="#FFFFFF"
+    		android:gravity="left|center"
+    		android:padding="5dp"
+    		android:textSize="20sp"
+            />
+            
+            
+            
+            </RelativeLayout>
+            
+            </ScrollView>
+            
+            <!-- <Button
+            android:id="@+id/devotionals_button"
+			android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content"
+    		android:text="  Video Devotionals"
+    		android:drawableLeft="@drawable/viddev"
+    		android:background="@null"
+    		android:textColor="#FFFFFF"
+    		android:gravity="left|center"
+            android:padding="5dp"
+            android:textSize="20sp"
+            />
+             -->
+
+</RelativeLayout>
