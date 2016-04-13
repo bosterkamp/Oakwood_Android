@@ -148,7 +148,7 @@ public class BibleVerseActivity extends Activity implements Runnable  {
             }
             catch (Exception e)
             {
-            	Log.v("Calendar Activity onDetachedFromWindow", e.getMessage());
+            	Log.v("Bible Verse Activity onDetachedFromWindow", e.getMessage());
             }
 			super.onPause();
 		}

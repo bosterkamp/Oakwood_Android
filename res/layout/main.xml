@@ -67,12 +67,12 @@
             />
 
             <Button
-            android:id="@+id/eray_button"
+            android:id="@+id/tweets_button"
 			android:layout_below="@id/calendar_button"            
 			android:layout_width="fill_parent" 
     		android:layout_height="wrap_content"
     		android:text="  RAY TWEETS"
-    		android:drawableLeft="@drawable/eray"
+    		android:drawableLeft="@drawable/tweets"
     		android:background="@null"
     		android:textColor="#FFFFFF"
     		android:gravity="left|center"
@@ -82,7 +82,7 @@
             
                         <Button
             android:id="@+id/address_button"
-            android:layout_below="@id/eray_button"
+            android:layout_below="@id/tweets_button"
 			android:layout_width="fill_parent" 
     		android:layout_height="wrap_content"
     		android:text="  FIND US"
@@ -94,7 +94,32 @@
     		android:textSize="20sp"
             />
             
-            
+                        <Button
+            android:id="@+id/devotionals_button"
+            android:layout_below="@id/address_button"
+			android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content"
+    		android:text="  DEVOTIONS"
+    		android:drawableLeft="@drawable/viddev"
+    		android:background="@null"
+    		android:textColor="#FFFFFF"
+    		android:gravity="left|center"
+            android:padding="5dp"
+            android:textSize="20sp"
+            />
+                        
+                                                <Button
+            android:id="@+id/oakwoodnb_button"
+            android:layout_below="@id/devotionals_button"
+			android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content"
+    		android:text="Launch oakwoodnb.com"
+    		android:background="@null"
+    		android:textColor="#FFFFFF"
+    		android:gravity="center"
+            android:padding="5dp"
+            android:textSize="20sp"
+            />
             
             </RelativeLayout>
             

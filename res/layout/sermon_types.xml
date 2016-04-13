@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000"
+    android:textColor="#FFFFFF"
+    android:textSize="20sp"
+    android:gravity="center"
+    >
+    
+            <LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    android:textColor="#FFFFFF"
+    android:textSize="20sp"
+    android:orientation="vertical" 
+    >
+    
+                        <Button
+                            android:id="@+id/sermon_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@null"
+                            android:drawableLeft="@drawable/audio_icon"
+                            android:padding="5dp"
+                            android:text=""
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp" />
+     
+            <Button
+                android:id="@+id/bible_verse_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:drawableLeft="@drawable/video_icon"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+    
+            </LinearLayout>           
+            
+</RelativeLayout>

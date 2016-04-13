@@ -102,7 +102,7 @@ public class CalendarRssItem {
 		details = " " + "Day " + getEventDate().getDay() + " H/M " + getEventDate().getHours() 
 			+ getEventDate().getMinutes();
 		
-		Log.v("CalendarRssItem", "Summary: " + getTitle() + " Details: " + details);
+		//Log.v("CalendarRssItem", "Summary: " + getTitle() + " Details: " + details);
 		
 		TimeZone tz = TimeZone.getTimeZone("America/Chicago");
 		formatter.setTimeZone(tz);

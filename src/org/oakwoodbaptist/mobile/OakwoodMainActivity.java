@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -59,7 +60,7 @@ public class OakwoodMainActivity extends Activity {
 			@Override
 			public void onClick(View v) 
 			{
-				launchSermonSelectionActivity();				
+				launchSermonTypeSelectionActivity();				
 			}
 		});
         
@@ -76,7 +77,7 @@ public class OakwoodMainActivity extends Activity {
 		});
 		        
         //Ray Tweets Button
-        Button rayTweetsButton = (Button) findViewById(R.id.eray_button);
+        Button rayTweetsButton = (Button) findViewById(R.id.tweets_button);
         rayTweetsButton.setOnClickListener(new View.OnClickListener() 
         {
 			
@@ -114,16 +115,28 @@ public class OakwoodMainActivity extends Activity {
 		*/
     
         //Devotionals Button
-//        Button devotionalsButton = (Button) findViewById(R.id.devotionals_button);
-//        devotionalsButton.setOnClickListener(new View.OnClickListener() 
-//        {
-//			
-//			@Override
-//			public void onClick(View v) 
-//			{
-//				launchDevotionalSelectionActivity();				
-//			}
-//		});
+        Button devotionalsButton = (Button) findViewById(R.id.devotionals_button);
+        devotionalsButton.setOnClickListener(new View.OnClickListener() 
+        {
+			
+			@Override
+			public void onClick(View v) 
+			{
+				launchDevotionalSelectionActivity();				
+			}
+		});
+        
+        //OakwoodNB Button
+        Button oakwoodNBButton = (Button) findViewById(R.id.oakwoodnb_button);
+        oakwoodNBButton.setOnClickListener(new View.OnClickListener() 
+        {
+			
+			@Override
+			public void onClick(View v) 
+			{
+				launchOakwoodNBActivity();				
+			}
+		});
         
     }
     
@@ -155,18 +168,27 @@ public class OakwoodMainActivity extends Activity {
     //Launch the devotional selection activity
     private void launchDevotionalSelectionActivity()
     {
-    	//Launch a new activity
-    	//commented out to try the mediacontroller
-    	Intent launchDevotionalSelection = new Intent(OakwoodMainActivity.this, DevotionalSelectionActivity.class);
-    	startActivity(launchDevotionalSelection);
+    	//Commented out to load up vimeo channel from default web client.
+    	//Intent launchDevotionalSelection = new Intent(OakwoodMainActivity.this, DevotionalSelectionActivity.class);
+    	//startActivity(launchDevotionalSelection);
+    	
+    	startActivity(new Intent(Intent.ACTION_VIEW, 
+    	Uri.parse("http://vimeo.com/channels/299087/")));
     }
     
     //Launch the Sermon activity
-    private void launchSermonSelectionActivity()
+    private void launchSermonTypeSelectionActivity()
     {
     	//modified for updated sermon
-    	Intent launchSermon = new Intent(OakwoodMainActivity.this, SermonSelectionActivity.class);
+    	Intent launchSermon = new Intent(OakwoodMainActivity.this, SermonTypeSelectionActivity.class);
     	startActivity(launchSermon);
+    }
+    
+    //Launch the oakwoodNB activity
+    private void launchOakwoodNBActivity()
+    {
+    	startActivity(new Intent(Intent.ACTION_VIEW, 
+    	Uri.parse("http://www.oakwoodnb.com")));
     }
 
     //Launch the bible verse activity

@@ -21,7 +21,10 @@ public class VideoDevotionalActivity extends Activity {
 	
 //	private String path = "http://player.vimeo.com/video/37749667";
 //	private String path = "http://player.vimeo.com/video/37749667?player_id=player&title=0&byline=0&portrait=0&autoplay=1&api=1";
-	private String path = "http://player.vimeo.com/video/24577973?player_id=player&autoplay=1&title=0&byline=0&portrait=0&api=1&maxheight=480&maxwidth=800";
+//	private String path = "http://player.vimeo.com/video/24577973?player_id=player&autoplay=1&title=0&byline=0&portrait=0&api=1&maxheight=480&maxwidth=800";
+//	private String path = "http://vimeo.com/channels/299087/35699155";
+	//private String path = "http://player.vimeo.com/video/93191211";
+	private String path = "http://vimeo.com/channels/299087/";
 	private WebView mWebView;
 	
 	/** Called when the activity is first created. */
@@ -66,6 +69,10 @@ public class VideoDevotionalActivity extends Activity {
             
             //Need to figure out how to make this load the latest eRay.
             	mWebView.loadUrl(path);
+            //mWebView.loadUrl("file:///android_asset/vimeo.html");
+             //String summary = "<html><head><title>This is a test</title></head><body><iframe src=\"http://player.vimeo.com/video/93191211?api=1\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
+            //		+ "</body></html>";
+            //mWebView.loadData(summary, "text/html", "UTF-8");
     		}    
       }
     

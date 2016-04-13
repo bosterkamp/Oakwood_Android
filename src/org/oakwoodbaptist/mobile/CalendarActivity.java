@@ -55,7 +55,7 @@ public class CalendarActivity extends Activity implements Runnable{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        Log.v("CalendarActivity", "entry");
+        //Log.v("CalendarActivity", "entry");
         
         setContentView(R.layout.calendar);
         
@@ -107,7 +107,7 @@ public class CalendarActivity extends Activity implements Runnable{
 		}
 		else
 		{
-			Log.v("aa count ", String.valueOf(aa.getCount()));
+			//Log.v("aa count ", String.valueOf(aa.getCount()));
 		}
 
 		//Bind array adapter to the list  
@@ -145,9 +145,9 @@ public class CalendarActivity extends Activity implements Runnable{
           
         try
         {
-        	Log.v("CalendarActivity", "before RssReader call");
+        	//Log.v("CalendarActivity", "before RssReader call");
         	allRssItems = RssReader.processCalendarRssResponse(CALENDAR_URL);
-        	Log.v("CalendarActivity", "after RssReader call");
+        	//Log.v("CalendarActivity", "after RssReader call");
         	
         	if (allRssItems != null)
         	{

@@ -18,11 +18,11 @@ public class DevotionalRssItem {
 	/**
 	 * Constructs the ERayItem on creation
 	 */
-	public DevotionalRssItem(String title, String description, 
+	public DevotionalRssItem(String title, /*String description,*/ 
 			String link)
 	{
 		this.title = title;
-		this.description = description;
+		//this.description = description;
 		this.link = link;
 	}
 	

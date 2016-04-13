@@ -93,20 +93,40 @@ public class RssReader {
 		                Element _linkE = (Element) entry.getElementsByTagName("link").item(0);
 		                Element _enclosureE = (Element) entry.getElementsByTagName("enclosure").item(0);
 		                
+		                //Log.v("RssReader", "before itunes:keywords");
 		                
 		                //Added new keywords element
 		                Element _keywordsE = (Element) entry.getElementsByTagName("itunes:keywords").item(0);
+		                
+		                //Log.v("RssReader", "before itunes:duration");
 		                
 		                //Added new duration element for total duration
 		                Element _durationE = (Element) entry.getElementsByTagName("itunes:duration").item(0);
 		                String _title = _titleE.getFirstChild().getNodeValue();
 		                String _link = _linkE.getFirstChild().getNodeValue();  
 	
+		                //Log.v("RssReader", "before url");
+		                
 		                //To get the url of the media file, you have to pull in the url attribute of the
 		                //enclosure tag.
 		                String _enclosureUrl = _enclosureE.getAttribute("url");
 		                
-		                String _keywords = _keywordsE.getFirstChild().getNodeValue();
+		                //Log.v("RssReader", "before itunes:keywords node value");
+		                
+		                String _keywords = null;
+		                
+		                if (_keywordsE != null && _keywordsE.getFirstChild() != null)
+		                {
+		                	_keywords = _keywordsE.getFirstChild().getNodeValue();
+		                }
+		                else
+		                {
+		                	//Log.v("RssReader", "keywords node value does not exist");
+		                }
+		                
+		                
+		                
+		                //Log.v("RssReader", "before itunes:duration node value");
 		                String _duration = _durationE.getFirstChild().getNodeValue();
 		                
 		                SermonRssItem sermonRssItem = new SermonRssItem(_title, null, null, _link, _enclosureUrl, _keywords, _duration);
@@ -187,6 +207,9 @@ public class RssReader {
 			                BibleVerseRssItem bibleVerseRssItem = new BibleVerseRssItem(null, parsedDescription, null, null);
 			                rssFeeds.add(bibleVerseRssItem);
 			                nodeHasValidContent = true;
+			                
+			                //will this short circuit so we don't go through all nodes unecessarily?
+			                nodesComplete = true;
 						}
 						catch (Exception e)
 						{
@@ -230,12 +253,23 @@ public class RssReader {
 
     			//change to the mobile site...
     			formattedString = parsedString.replaceAll("www", "mobile");
-    			
-//    			Log.v("parseBibleVerses", "found Monday!");
-    			break;
+    			//formattedString = formattedString.replaceAll("<br />", "<br /><br />");
+    			//Log.v("parseBibleVerses", "found Monday!");
+    			//break;
     		}
+    		//Add Memory Verse
+    		if (strings[i].contains("GREAT SCRIPTURE TO MEMORIZE"))
+    		{
+    			//Log.v("parseBibleVerses", "found memory verse");
+    			//Log.v("parseBibleVerses", "formattedString before concat: " + formattedString);
+    			formattedString = formattedString.concat("<br /><br />" + strings[i] + "<br /><br />");
+    			//Log.v("parseBibleVerses", "formattedString after concat: " + formattedString);
+    		}
+    		
+    		
+    		
 		}
-//    	Log.v("parseBibleVerses", "formattedString: " + formattedString);
+    	//Log.v("parseBibleVerses", "formattedString: " + formattedString);
     	return formattedString;
     }
 
@@ -256,7 +290,7 @@ public class RssReader {
     	URL url = new URL(feedUrl);  
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         
-//        Log.v("processCalendarRssResponse", "about to check connection");
+        Log.v("processCalendarRssResponse", "about to check connection");
         
     	    if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) 
     	    {  
@@ -265,9 +299,9 @@ public class RssReader {
 
     	    	try 
     	    	{
-    	    		//Log.v("RssReader", "about to build");
+    	    		Log.v("RssReader", "about to build");
 	    			Calendar calendar = builder.build(is);
-	    			//Log.v("RssReader", "just did build");
+	    			Log.v("RssReader", "just did build");
 	    			
         			//setup variables
         			String _title = "";
@@ -284,10 +318,10 @@ public class RssReader {
         			today.clear(java.util.Calendar.MINUTE);
         			today.clear(java.util.Calendar.SECOND);
         			
-        			Log.v("RssReader", "starting with today");
+        			//Log.v("RssReader", "starting with today");
         			
         			//setup duration in weeks (12 weeks is 3 months)
-        			Dur duration = new Dur(4);
+        			Dur duration = new Dur(12);
         			
         			//Log.v("RssReader", "set duration");
         			
@@ -331,7 +365,7 @@ public class RssReader {
     	        				if (occurrences != null && occurrences.size() > 0)
         	        			{
 
-    	        					//Log.v("RssReader", "Occurences = " + occurrences.size());
+    	        					Log.v("RssReader", "Occurences = " + occurrences.size());
 
     	        					for (int i = 0; i < occurrences.size(); i++) 
     	        					{
@@ -392,7 +426,7 @@ public class RssReader {
 	        				}
 	        				else
 	        				{
-	        					Log.v("RssReader", "reccurrence is null");
+	        					//Log.v("RssReader", "reccurrence is null");
 	        				}
         				}
         				else
@@ -483,14 +517,14 @@ public class RssReader {
 	        	} 
     	    	catch (ParserException e) 
     	    	{
-    	    		Log.v("RssReader", "Caught ParserException " + e.getMessage());
+    	    		//Log.v("RssReader", "Caught ParserException " + e.getMessage());
 	        	}
     	        
     	    }
     	    //otherwise we didn't get a connection
     	    else
     	    {
-    	    	Log.v("input stream", "Response Code: " + conn.getResponseMessage());
+    	    	//Log.v("input stream", "Response Code: " + conn.getResponseMessage());
     	    }
 
     	    return rssFeeds;
@@ -547,18 +581,18 @@ public class RssReader {
 		{
 			CalendarRssItem checkCalItem = rssFeeds.get(index);
 			if (checkCalItem.getTitle().equals(_title) 
-//					&&
-//					checkCalItem.getEventDate().equals(_startDate)
+					&&
+					checkCalItem.getEventDate().equals(_startDate)
 					)
 				//Make sure the date types match
 				//Event Date needs to be converted to date
 			{
 				java.util.Date properDate = new java.util.Date();
 				properDate.setTime(checkCalItem.getEventDate().getTime());
-//				Log.v("RSSReader duplicate check: ", checkCalItem.getTitle() + " " + _title);
-//				Log.v("RSSReader duplicate check: ", checkCalItem.getEventDate() + " " + _startDate);
-//				Log.v("RSSReader duplicate check: ", "Proper Date" + properDate.toString());
-//				Log.v("RSSReader duplicate check: ", " Duplicate: " + duplicate);
+				//Log.v("RSSReader duplicate check: ", checkCalItem.getTitle() + " " + _title);
+				//Log.v("RSSReader duplicate check: ", checkCalItem.getEventDate() + " " + _startDate);
+				//Log.v("RSSReader duplicate check: ", "Proper Date" + properDate.toString());
+				//Log.v("RSSReader duplicate check: ", " Duplicate: " + duplicate);
 				//we have a duplicate
 				duplicate = true;
 			}
@@ -571,6 +605,7 @@ public class RssReader {
 			}
 			*/
 		}
+		//Log.v("RSSReader duplicate check: ", " Duplicate: " + duplicate);
 		return duplicate;
 	}
     
@@ -701,27 +736,27 @@ public class RssReader {
 			                //take each entry (corresponds to <item></item> tags in  
 			                //xml data  
 			                Element entry = (Element) nodeList.item(i);  
-			                Element _descriptionE = (Element) entry.getElementsByTagName("content:encoded").item(0);  
-//			                Log.v("RssReader", "before desc");
-			                String _description = _descriptionE.getFirstChild().getNodeValue();  
-//			                Log.v("description" + i + " ", _description);
+			                //Element _descriptionE = (Element) entry.getElementsByTagName("content:encoded").item(0);  
+			                //Log.v("RssReader", "before desc");
+			                //String _description = _descriptionE.getFirstChild().getNodeValue();  
+			                //Log.v("description" + i + " ", _description);
 			                
 			                Element _titleE = (Element) entry.getElementsByTagName("title").item(0);
 			                String _title = _titleE.getFirstChild().getNodeValue();  
-//			                Log.v("title" + i + " ", _title);
+			                //Log.v("title" + i + " ", _title);
 			                
 			                Element _linkE = (Element) entry.getElementsByTagName("link").item(0);
 			                String _link = _linkE.getFirstChild().getNodeValue();  
-//			                Log.v("link" + i + " ", _link);
+			                //Log.v("link" + i + " ", _link);
 			                
-			                DevotionalRssItem devotionalRssItem = new DevotionalRssItem(_title, _description, _link);
+			                DevotionalRssItem devotionalRssItem = new DevotionalRssItem(_title, /*_description,*/ _link);
 			                rssFeeds.add(devotionalRssItem);
 			                nodeHasValidContent = true;
 						}
 						catch (Exception e)
 						{
 							//Swallow exception in case we have an invalid node...
-							Log.v("RssReader", "invalid node");
+							Log.v("RssReader", "invalid node " + e.getMessage());
 						}
 	
 					}			
